@@ -1,0 +1,17 @@
+{
+  "name": "serene-haven-website",
+  "version": "1.0.0",
+  "description": "Serene Haven wellness website",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build process needed for static site' && exit 0",
+    "start": "echo 'Static site - open index.html in browser'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HaritsAcheiz/serene-haven-website.git"
+  },
+  "keywords": ["wellness", "static-site", "html", "css", "javascript"],
+  "author": "HaritsAcheiz",
+  "license": "MIT"
+}
