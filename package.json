@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "build": "chmod +x build.sh && ./build.sh"
-  }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/HaritsAcheiz/serene-haven-website.git"
