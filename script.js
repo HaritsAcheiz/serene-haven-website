@@ -8,7 +8,8 @@ let chatSend = null;
 let chatClose = null;
 
 // N8N Webhook URL - Replace with your actual webhook URL
-const N8N_WEBHOOK_URL = '__N8N_WEBHOOK_URL__';
+// const N8N_WEBHOOK_URL = '__N8N_WEBHOOK_URL__';
+const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || window.env.N8N_WEBHOOK_URL;
 
 // Initialize chat widget when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
