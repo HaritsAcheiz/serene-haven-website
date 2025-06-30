@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team — Serene Haven Salon & Spa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <img src="images/serene_haven_logo.png" alt="Serene Haven Salon & Spa" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="our-services.html">OUR SERVICES</a></li>
+                <li><a href="our-team.html" class="active">OUR TEAM</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+            <button class="book-btn">BOOK NOW</button>
+        </nav>
+    </header>
+
+    <!-- Team Page Content -->
+    <section class="team-page">
+        <div class="team-header">
+            <h1 class="script-heading">Meet Our Team</h1>
+        </div>
+
+        <div class="team-members">
+            <!-- Team Member 1 - Sarah -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-text">
+                        <h3>Meet Sarah!</h3>
+                        <p>She is an extremely talented stylist and a recent graduate of hair school. She is certified in all Bellami Extension Methods and loves doing major transformations that boost her guests' confidence! In her free time, Sarah enjoys traveling, wake surfing and spending time with friends and family. Her outgoing personality is a great addition to our fun and passionate team at Serene Haven! She is excited to learn and grow her skill set with us, and embrace her creativity.</p>
+                        <button class="instagram-btn">Sarah's Instagram →</button>
+                    </div>
+                    <div class="member-image">
+                        <div class="member-photo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 - Emma -->
+            <div class="team-member reverse">
+                <div class="member-content">
+                    <div class="member-image">
+                        <div class="member-photo"></div>
+                    </div>
+                    <div class="member-text">
+                        <h3>Meet Emma!</h3>
+                        <p>She is talented lash artist who has been enhancing natural beauty since 2020. Her journey began in a cozy home studio, where she cultivated a keen eye for detail and a commitment to exceptional service. With expertise in a range of lash styles—from soft and natural to bold and dramatic—Emma truly shines when it comes to mega volume lashes. She's passionate about the fullness and drama they offer, and she loves helping her clients feel confident with every fluffy, eye-catching set.</p>
+                        <button class="instagram-btn">Emma's Instagram →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 - Victoria -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-text">
+                        <h3>Meet Victoria!</h3>
+                        <p>She is a talented stylist who completed her training at Bella Elite Beauty and Barber Academy. Victoria has a passion for blonding, creating beautiful wedding updos, and intricate braiding, but her true love lies in barbering. She takes great joy in helping her clients feel confident and beautiful, bringing out each individual's unique personality through their hair.</p>
+                        <button class="instagram-btn">Victoria's Instagram →</button>
+                    </div>
+                    <div class="member-image">
+                        <div class="member-photo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 - Brittany -->
+            <div class="team-member reverse">
+                <div class="member-content">
+                    <div class="member-image">
+                        <div class="member-photo"></div>
+                    </div>
+                    <div class="member-text">
+                        <h3>Meet Brittany!</h3>
+                        <p>She has accumulated 6 years of experience in the industry and holds the prestigious Red-Seal Journeyman certification as a hairstylist. With a keen eye for personalization, she takes pride in tailoring cuts, colors, and perms to match individual personalities, desires, and lifestyles. Her extensive training enables her to handle various hair types, including short, long, straight, wavy, and curly. While she appreciates all colors, her true passion lies in creating lived-in colors or balayages. Above all, Brittany's utmost priority is ensuring her clients' happiness, self-assurance, and overall satisfaction with their hair.</p>
+                        <button class="instagram-btn">Brittany's Instagram →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 5 - Madison -->
+            <div class="team-member">
+                <div class="member-content">
+                    <div class="member-text">
+                        <h3>Meet Madison!</h3>
+                        <p>She is a Red Seal Certified Hairstylist. Her skills are very well rounded, including but not limited to, Coloring, Extensions, Men's Cuts and Waxing. Coloring is her specialty, and although blonding is her most popular service, funky colors are her passion. They allow her to show her fun, creative side. She loves soaking up additional education to help add to and round out her skills, so she can be the best version of herself for all of you! Madison will make sure you leave knowing very helpful tips and tricks for maintaining your hair. Her favourite part of this career are the connections she is able to build with her guests, and the confidence she has the ability to give you through hair transformations.</p>
+                        <button class="instagram-btn">Madison's Instagram →</button>
+                    </div>
+                    <div class="member-image">
+                        <div class="member-photo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-icon" id="chatIcon">💬</div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Chat with us</span>
+                <button class="chat-close" id="chatClose">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="chatSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

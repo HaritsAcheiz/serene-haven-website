@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery — Serene Haven Salon & Spa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <img src="images/serene_haven_logo.png" alt="Serene Haven Salon & Spa" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="our-services.html">OUR SERVICES</a></li>
+                <li><a href="our-team.html">OUR TEAM</a></li>
+                <li><a href="gallery.html" class="active">GALLERY</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+            <button class="book-btn">BOOK NOW</button>
+        </nav>
+    </header>
+
+    <!-- Gallery Page Content -->
+    <section class="gallery-page">
+        <div class="gallery-header">
+            <h1>The art we create and brands that we love!</h1>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-carousel">
+                <button class="carousel-btn prev-btn" id="prevBtn">‹</button>
+                <div class="gallery-images" id="galleryImages">
+                    <div class="gallery-slide active">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                            <div class="gallery-item">
+                                <div class="gallery-img-placeholder"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" id="nextBtn">›</button>
+            </div>
+        </div>
+
+        <div class="gallery-footer">
+            <div class="gallery-links">
+                <h3>LINKS</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="our-services.html">Services</a></li>
+                    <li><a href="our-team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="gallery-social">
+                <h3>FOLLOW US</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-icon" id="chatIcon">💬</div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Chat with us</span>
+                <button class="chat-close" id="chatClose">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="chatSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

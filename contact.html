@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Serene Haven Salon & Spa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <img src="images/serene_haven_logo.png" alt="Serene Haven Salon & Spa" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="our-services.html">OUR SERVICES</a></li>
+                <li><a href="our-team.html">OUR TEAM</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="contact.html" class="active">CONTACT</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+            <button class="book-btn">BOOK NOW</button>
+        </nav>
+    </header>
+
+    <!-- Contact Page Content -->
+    <section class="contact-page">
+        <div class="contact-header">
+            <h1 class="script-heading">Connect With Us</h1>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info-card">
+                <h2>Business Hours</h2>
+                <div class="hours-list">
+                    <div class="hour-item">
+                        <span class="day">Sunday</span>
+                        <span class="time">CLOSED</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Monday</span>
+                        <span class="time">CLOSED</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Tuesday</span>
+                        <span class="time">9:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Wednesday</span>
+                        <span class="time">9:00 AM - 7:00 PM</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Thursday</span>
+                        <span class="time">9:00 AM - 4:30 PM</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Friday</span>
+                        <span class="time">9:00 AM - 5:00 PM</span>
+                    </div>
+                    <div class="hour-item">
+                        <span class="day">Saturday</span>
+                        <span class="time">9:00 AM - 3:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-details-card">
+                <div class="contact-item">
+                    <h3>Phone:</h3>
+                    <a href="tel:555-123-4567" class="contact-link">(555) 123-4567</a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Email:</h3>
+                    <span>hello@serenehavenspa.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Location:</h3>
+                    <p>We are located in Serenity City at<br>
+                    123 Tranquility Lane, ST 54321</p>
+                </div>
+                
+                <div class="contact-item">
+                    <button class="map-btn">View us on the map →</button>
+                </div>
+                
+                <div class="contact-item">
+                    <button class="book-appointment-btn">BOOK AN APPOINTMENT →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-icon" id="chatIcon">💬</div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>Chat with us</span>
+                <button class="chat-close" id="chatClose">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="chatSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
