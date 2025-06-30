@@ -1,2 +1,2 @@
 [build]
-  command = "npm run build && node ./script.js"
+  command = "npm run build"
