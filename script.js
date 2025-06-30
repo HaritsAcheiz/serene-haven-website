@@ -9,7 +9,14 @@ let chatClose = null;
 
 // N8N Webhook URL - Replace with your actual webhook URL
 // const N8N_WEBHOOK_URL = '__N8N_WEBHOOK_URL__';
-const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+// const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+export default async (request, context) => {
+  const value = Netlify.env.get("N8N_WEBHOOK_URL");
+
+  return new Response(`Value of N8N_WEBHOOK_URL for ${context.site.name} is ${value}.`, {
+    headers: { "content-type": "text/html" },
+  });
+};
 
 // Initialize chat widget when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
