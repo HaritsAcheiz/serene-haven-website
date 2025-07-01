@@ -1,6 +1,5 @@
 [build]
-# This command constructs the sed command string using printf,
-# then executes it with `sh`.
-# This handles the complex quoting requirements for TOML, shell, and sed.
-command = "printf \"sed -i 's|__N8N_WEBHOOK_URL__|\%s|g' script.js\" \"$N8N_WEBHOOK_URL\" | sh && echo 'Build complete'"
+# Netlify will run this script.
+# All environment variables set in the Netlify UI will be available to build.sh.
+command = "./build.sh"
 publish = "."
