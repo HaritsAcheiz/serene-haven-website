@@ -8,8 +8,7 @@ let chatSend = null;
 let chatClose = null;
 
 // N8N Webhook URL - Replace with your actual webhook URL
-// const N8N_WEBHOOK_URL = '__N8N_WEBHOOK_URL__';
-const N8N_WEBHOOK_URL = Netlify.env.get("N8N_WEBHOOK_URL").
+const N8N_WEBHOOK_URL = '__N8N_WEBHOOK_URL__';
 
 // Initialize chat widget when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -299,4 +298,25 @@ function initializeScrollAnimations() {
 
 // Initialize scroll animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
+
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('/.netlify/functions/get-n8n_webhook');
+        const data = await response.json();
+        console.log("Response from Netlify Function:", data.message);
+
+        // You would typically use the data to update your UI
+        const messageElement = document.getElementById('message');
+        if (messageElement) {
+            messageElement.textContent = data.message;
+        }
+
+    } catch (error) {
+        console.error("Error fetching from Netlify Function:", error);
+        const messageElement = document.getElementById('message');
+        if (messageElement) {
+            messageElement.textContent = "Failed to load secret data.";
+        }
+    }
+});
 
