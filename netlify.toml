@@ -1,0 +1,3 @@
+[build]
+command = "sed -i 's/__N8N_WEBHOOK_URL__/$N8N_WEBHOOK_URL/g' script.js && echo 'Build complete'"
+publish = "."
