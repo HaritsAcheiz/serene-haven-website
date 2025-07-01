@@ -1,3 +1,6 @@
 [build]
-command = "sed -i 's|__N8N_WEBHOOK_URL__|'"$N8N_WEBHOOK_URL"'|g' script.js && echo 'Build complete'"
+# This command constructs the sed command string using printf,
+# then executes it with `sh`.
+# This handles the complex quoting requirements for TOML, shell, and sed.
+command = "printf \"sed -i 's|__N8N_WEBHOOK_URL__|\%s|g' script.js\" \"$N8N_WEBHOOK_URL\" | sh && echo 'Build complete'"
 publish = "."
