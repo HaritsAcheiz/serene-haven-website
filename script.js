@@ -111,21 +111,18 @@ function addMessageToChat(message, sender) {
 
 function showTypingIndicator() {
     const typingDiv = document.createElement('div');
-    typingDiv.className = 'message typing-indicator';
-    typingDiv.innerHTML = `
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-    `;
+    typingDiv.className = 'message bot-message typing-indicator';
+    typingDiv.textContent = 'Typing...';
+    typingDiv.id = 'typing-indicator';
+
     chatMessages.appendChild(typingDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
-
-    return typingDiv;
 }
 
-function hideTypingIndicator(typingDiv) {
-    if (typingDiv && typingDiv.parentNode === chatMessages) {
-        chatMessages.removeChild(typingDiv);
+function removeTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove();
     }
 }
 
