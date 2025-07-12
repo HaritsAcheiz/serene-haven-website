@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGalleryCarousel();
     initializeNavigation();
     loadChatHistory();
+
+    if (chatMessages.children.length === 0) {
+        addMessageToChat("Hello! How can I help you today?", "bot");
+    }
 });
 
 function saveChatHistory() {
@@ -55,27 +59,23 @@ function initializeChatWidget() {
     chatClose = document.getElementById('chatClose');
 
     if (!chatWidget) return;
-
-    // Chat icon click event
+    loadChatHistory();
     chatIcon.addEventListener('click', function() {
         toggleChatWindow();
     });
 
-    // Close button click event
     if (chatClose) {
         chatClose.addEventListener('click', function() {
             closeChatWindow();
         });
     }
 
-    // Send button click event
     if (chatSend) {
         chatSend.addEventListener('click', function() {
             sendMessage();
         });
     }
 
-    // Enter key press event
     if (chatInput) {
         chatInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -88,61 +88,94 @@ function initializeChatWidget() {
 }
 
 function toggleChatWindow() {
-    if (chatWindow.classList.contains('active')) {
-        closeChatWindow();
+    if (chatWindow.style.display === 'flex') {
+        chatWindow.style.display = 'none';
     } else {
-        openChatWindow();
-    }
-}
-
-function openChatWindow() {
-    chatWindow.classList.add('active');
-    if (chatInput) {
-        chatInput.focus();
+        chatWindow.style.display = 'flex';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 }
 
 function closeChatWindow() {
-    chatWindow.classList.remove('active');
-}
-
-function sendMessage() {
-    const message = chatInput.value.trim();
-    if (!message) return;
-
-    // Add user message to chat
-    addMessageToChat(message, 'user');
-    
-    // Clear input
-    chatInput.value = '';
-
-    // Send message to N8N webhook
-    sendToN8N(message);
+    chatWindow.style.display = 'none';
 }
 
 function addMessageToChat(message, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
     messageDiv.textContent = message;
-    
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
+    saveChatHistory();
 }
 
 function showTypingIndicator() {
     const typingDiv = document.createElement('div');
-    typingDiv.className = 'message bot-message typing-indicator';
-    typingDiv.textContent = 'Typing...';
-    typingDiv.id = 'typing-indicator';
-    
+    typingDiv.className = 'message typing-indicator';
+    typingDiv.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    `;
     chatMessages.appendChild(typingDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    return typingDiv;
 }
 
-function removeTypingIndicator() {
-    const typingIndicator = document.getElementById('typing-indicator');
-    if (typingIndicator) {
-        typingIndicator.remove();
+function hideTypingIndicator(typingDiv) {
+    if (typingDiv && typingDiv.parentNode === chatMessages) {
+        chatMessages.removeChild(typingDiv);
+    }
+}
+
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (message === '') return;
+    addMessageToChat(message, 'user');
+    chatInput.value = '';
+    const typingElement = showTypingIndicator();
+    setTimeout(() => {
+        hideTypingIndicator(typingElement);
+        const botResponses = [
+            "I'd be happy to help with that!",
+            "We offer several options for that service.",
+            "Would you like me to book an appointment for you?",
+            "Our team would be happy to assist with that.",
+            "Let me check our availability for you."
+        ];
+        const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
+        addMessageToChat(randomResponse, 'bot');
+    }, 1500);
+}
+
+function saveChatHistory() {
+    if (!chatMessages) return;
+    const messages = [];
+    chatMessages.querySelectorAll('.message').forEach(msgDiv => {
+        if (!msgDiv.classList.contains('typing-indicator')) {
+            messages.push({
+                text: msgDiv.textContent,
+                sender: msgDiv.classList.contains('user-message') ? 'user' : 'bot'
+            });
+        }
+    });
+    sessionStorage.setItem('chatHistory', JSON.stringify(messages));
+}
+
+function loadChatHistory() {
+    if (!chatMessages) return;
+    const savedHistory = sessionStorage.getItem('chatHistory');
+    if (savedHistory) {
+        try {
+            const messages = JSON.parse(savedHistory);
+            chatMessages.innerHTML = ''; // Clear existing messages
+            messages.forEach(msg => {
+                addMessageToChat(msg.text, msg.sender);
+            });
+        } catch (e) {
+            console.error('Error loading chat history:', e);
+        }
     }
 }
 
