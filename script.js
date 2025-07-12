@@ -14,7 +14,36 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeChatWidget();
     initializeGalleryCarousel();
     initializeNavigation();
+    loadChatHistory();
 });
+
+function saveChatHistory() {
+    if (!chatMessages) return;
+    const messages = [];
+    chatMessages.querySelectorAll('.message').forEach(msgDiv => {
+        // Exclude typing indicator from being saved
+        if (!msgDiv.classList.contains('typing-indicator')) {
+            messages.push({
+                text: msgDiv.textContent,
+                sender: msgDiv.classList.contains('user-message') ? 'user' : 'bot'
+            });
+        }
+    });
+    sessionStorage.setItem('chatHistory', JSON.stringify(messages));
+    console.log('Chat history saved.'); // For debugging
+}
+
+function loadChatHistory() {
+    if (!chatMessages) return;
+    const savedHistory = sessionStorage.getItem('chatHistory');
+    if (savedHistory) {
+        const messages = JSON.parse(savedHistory);
+        messages.forEach(msg => {
+            addMessageToChat(msg.text, msg.sender);
+        });
+        console.log('Chat history loaded.'); // For debugging
+    }
+}
 
 function initializeChatWidget() {
     chatWidget = document.getElementById('chatWidget');
@@ -54,6 +83,8 @@ function initializeChatWidget() {
             }
         });
     }
+
+    window.addEventListener('beforeunload', saveChatHistory);
 }
 
 function toggleChatWindow() {
