@@ -134,7 +134,6 @@ function sendMessage() {
     if (message === '') return;
     addMessageToChat(message, 'user');
     chatInput.value = '';
-    const typingElement = showTypingIndicator();
     sendToN8N(message);
 }
 
