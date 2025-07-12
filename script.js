@@ -135,18 +135,7 @@ function sendMessage() {
     addMessageToChat(message, 'user');
     chatInput.value = '';
     const typingElement = showTypingIndicator();
-    setTimeout(() => {
-        hideTypingIndicator(typingElement);
-        const botResponses = [
-            "I'd be happy to help with that!",
-            "We offer several options for that service.",
-            "Would you like me to book an appointment for you?",
-            "Our team would be happy to assist with that.",
-            "Let me check our availability for you."
-        ];
-        const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
-        addMessageToChat(randomResponse, 'bot');
-    }, 1500);
+    sendToN8N(message);
 }
 
 function saveChatHistory() {
